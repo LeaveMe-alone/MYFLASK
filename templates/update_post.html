@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Post</title>
+</head>
+<body>
+    <h1>Update Post</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(size=32) }}<br>
+            {% for error in form.title.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            {{ form.slug.label }}<br>
+            {{ form.slug(size=32) }}<br>
+            {% for error in form.slug.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            {{ form.intro.label }}<br>
+            {{ form.intro(rows=5, cols=50) }}<br>
+            {% for error in form.intro.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            {{ form.paragraph_1.label }}<br>
+            {{ form.paragraph_1(rows=5, cols=50) }}<br>
+            {% for error in form.paragraph_1.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            {{ form.my_back_quote.label }}<br>
+            {{ form.my_back_quote(rows=5, cols=50) }}<br>
+            {% for error in form.my_back_quote.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            {{ form.subheading.label }}<br>
+            {{ form.subheading(rows=5, cols=50) }}<br>
+            {% for error in form.subheading.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            {{ form.paragraph_2.label }}<br>
+            {{ form.paragraph_2(rows=5, cols=50) }}<br>
+            {% for error in form.paragraph_2.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            {{ form.paragraph_3.label }}<br>
+            {{ form.paragraph_3(rows=5, cols=50) }}<br>
+            {% for error in form.paragraph_3.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% end

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>BARRACK OUMA</title>
+    <meta content name="description" />
+    <meta content name="keywords" />
+
+    <!-- Favicons -->
+    <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon" />
+    <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet" />
+
+    <!--           =======================================================
+  * Template Name: Anyar
+  * Updated: Jan 29 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/anyar-free-multipurpose-one-page-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ========================================================           -->
+  </head>
+
+  <body>
+    <!-- ======= Top Bar ======= -->
+    <div id="topbar" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">barrack2ouma@gmail.com</a>
+          <i class="bi bi-phone-fill phone-icon">+254 769946415</i>
+        </div>
+        <div class="cta d-none d-md-block">
+          <a href="{{ url_for('blog') }}" class="scrollto">Check Our Blogs</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <h1 class="logo"><a href="#hero">BARRACK</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href=index.html" class="logo"><img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="" class="img-fluid"></a> -->
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link scrollto active" href="#hero">Home</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="#about">About</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="#services">Services</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="#portfolio">Portfolio</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="#team">Reviews</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="#pricing">Pricing</a>
+            </li>
+            <li>
+              <a href="{{ url_for('blog') }}">My Blogs</a>
+            </li>
+            <li class="dropdown">
+              <a href="#"><span>Explore</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li>
+                  <a href="#">Drop Down 1</a>
+                </li>
+                <li class="dropdown">
+                  <a href="#">
+                    <span>Deep Drop Down</span>
+                    <i class="bi bi-chevron-right"></i>
+                  </a>
+                  <ul>
+                    <li>
+                      <a href="#">Deep Drop Down 1</a>
+                    </li>
+                    <li>
+                      <a href="#">Deep Drop Down 2</a>
+                    </li>
+                    <li>
+                      <a href="#">Deep Drop Down 3</a>
+                    </li>
+                    <li>
+                      <a href="#">Deep Drop Down 4</a>
+                    </li>
+                    <li>
+                      <a href="#">Deep Drop Down 5</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Drop Down 2</a>
+                </li>
+                <li>
+                  <a href="#">Drop Down 3</a>
+                </li>
+                <li>
+                  <a href="#">Drop Down 4</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex justify-cntent-center align-items-center">
+      <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="carousel-container">
+            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>my website</span></h2>
+            <p class="animate__animated animate__fadeInUp">If you haven't been living under a rock, you're likely aware of the recent advancements in machine learning (ML) and deep learning (DL) thanks to the introduction of the transformer architecture.</p>
+            <a href="{{ url_for('blog') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Check My Blogs</a>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="carousel-container">
+            <h2 class="animate__animated animate__fadeInDown">"We all love innovation and tech."</h2>
+            <p class="animate__animated animate__fadeInUp">If you haven't been living under a rock, you're likely aware of the recent advancements in machine learning (ML) and deep learning (DL) thanks to the introduction of the transformer architecture.</p>
+            <a href="{{ url_for('blog') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Check My Blogs</a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="carousel-container">
+            <h2 class="animate__animated animate__fadeInDown">What to expect</h2>
+            <p class="animate__animated animate__fadeInUp">In this forum, we engage in earnest discussions, mostly focused on scientific ideas. We refrain from discussing nonsense, people, relationships . If these topics do not align with your interests, we kindly ask you to exit the discussion.</p>
+            <a href="{{ url_for('blog') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Check My Blogs</a>
+          </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span></a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next"><span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span></a>
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+      <!-- ======= Icon Boxes Section ======= -->
+      <section id="icon-boxes" class="icon-boxes">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+              <div class="icon-box">
+                <div class="icon">
+                  <i class="bx bxl-dribbble"></i>
+                </div>
+                <h4 class="title"><a href="https://www.ibm.com/topics/deep-learning" target="_blank">DEEP LEARNING</a></h4>
+                <p class="description">Deep learning is a subset of machine learning that uses multi-layered neural networks, called deep neural networks, to simulate the complex decision-making power of the human brain. Some form of deep learning powers most of the artificial intelligence (AI) in our lives today.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon-box">
+                <div class="icon">
+                  <i class="bx bx-file"></i>
+                </div>
+                <h4 class="title"><a href="https://aws.amazon.com/what-is/data-science/#:~:text=Data%20science%20is%20the%20study,analyze%20large%20amounts%20of%20data." target="_blank">DATA SCIENCE</a></h4>
+                <p class="description">Data science is the study of data to extract meaningful insights for business. It is a multidisciplinary approach that combines principles and practices from the fields of mathematics, statistics, artificial intelligence, and computer engineering to analyze large amounts of data.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon-box">
+                <div class="icon">
+                  <i class="bx bx-tachometer"></i>
+                </div>
+                <h4 class="title"><a href>WEB DEVELOPMENT</a></h4>
+                <p class="description">Everyone knows web development; I won't go into details.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon-box">
+                <div class="icon">
+                  <i class="bx bx-layer"></i>
+                </div>
+                <h4 class="title"><a href="https://www.ibm.com/topics/machine-learning" target="_blank">MACHINE LEARNING</a></h4>
+                <p class="description">Machine learning is a branch of artificial intelligence (AI) and computer science which focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Icon Boxes Section -->
+
+      <!-- ======= About Us Section ======= -->
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>About Us</h2>
+            <p>At the heart of our mission lies an unrelenting passion for technology and its capacity to transform lives. From the outset, we have been captivated by the endless possibilities technology offers to enrich and empower people's lives. Our foundation is built on web development, where we create immersive digital experiences by combining HTML, CSS, and JavaScript. We bring ideas to life by crafting interactive platforms that resonate deeply with users. Our journey doesn't end there. We have ventured into deep learning and machine learning, harnessing the power of artificial intelligence. With Python as our versatile tool, we navigate complex data to build systems that adapt, learn, and evolve independently. Guided by the principles of innovation and collaboration, we leverage TensorFlow, Google's groundbreaking deep learning library, to push the boundaries of what's possible. With its flexibility and scalability, we tackle the most challenging problems head-on, paving the way for advancements that shape the future of technology. Our mission extends beyond our aspirations. We are driven by a steadfast commitment to empower others through technology. Whether through mentorship, education, or community engagement, we strive to inspire the next generation of innovators and changemakers. In a world where technology drives progress, we stand ready to shape a future where possibilities are limitless and opportunities abound. Join us on this journey, driven by a shared vision of empowerment and innovation.</p>
+          </div>
+
+          <div class="row content">
+            <div class="col-lg-6">
+              <p>Empowering your experience with cutting-edge technology! Our industry-leading algorithms, incorporating deep learning and GANs, ensure a service quality that is unmatched and unparalleled</p>
+              <ul>
+                <li>
+                  <i class="ri-check-double-line"></i> Highly responsive websites
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> Excellent database management
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> Precision-driven data analytics that leaves no margin for error.
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0">
+              <p>With an unwavering commitment to efficiency, we take pride in delivering prompt, reliable, and trustworthy services to our valued customers. Our dedication to speed ensures that you receive the assistance you need without any unnecessary delays.</p>
+              <a href="#" class="btn-learn-more">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End About Us Section -->
+
+      <!-- ======= Clients Section ======= -->
+      <section id="clients" class="clients">
+        <div class="container" data-aos="zoom-in">
+          <div class="clients-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+              <div class="swiper-slide">
+                <img src="{{ url_for('static', filename='assets/img/clients/client-1.png') }}" class="img-fluid" alt />
+              </div>
+              <div class="swiper-slide">
+                <img src="{{ url_for('static', filename='assets/img/clients/client-2.png') }}" class="img-fluid" alt />
+              </div>
+              <div class="swiper-slide">
+                <img src="{{ url_for('static', filename='assets/img/clients/client-3.png') }}" class="img-fluid" alt />
+              </div>
+              <div class="swiper-slide">
+                <img src="{{ url_for('static', filename='assets/img/clients/client-4.png') }}" class="img-fluid" alt />
+              </div>
+              <div class="swiper-slide">
+                <img src="{{ url_for('static', filename='assets/img/clients/client-5.png') }}" class="img-fluid" alt />
+              </div>
+              <div class="swiper-slide">
+                <img src="{{ url_for('static', filename='assets/img/clients/client-6.png') }}" class="img-fluid" alt />
+              </div>
+              <div class="swiper-slide">
+                <img src="{{ url_for('static', filename='assets/img/clients/client-7.png') }}" class="img-fluid" alt />
+              </div>
+              <div class="swiper-slide">
+                <img src="{{ url_for('static', filename='assets/img/clients/client-8.png') }}" class="img-fluid" alt />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <!-- End Clients Section -->
+
+      <!-- ======= Why Us Section ======= -->
+      <section id="why-us" class="why-us">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-5 align-items-stretch position-relative video-box" style="background-image: url({{ url_for('static', filename='img/why-us.jpg') }})" data-aos="fade-right">
+              <a href="https://youtu.be/8L11aMN5KY8?feature=shared" class="glightbox play-btn mb-4"></a>
+            </div>
+
+            <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch" data-aos="fade-left">
+              <div class="content">
+                <h3>
+                  We employ industry-leading algorithms, including deep learning and generative adversarial neural networks (GANs), to guarantee our customers receive
+                  <strong>top-notch service quality.</strong>
+                </h3>
+                <p>Below Are Some Tips</p>
+              </div>
+
+              <div class="accordion-list">
+                <ul>
+                  <li data-aos="fade-up" data-aos-delay="100">
+                    <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> How to Harness the Power of Technologies for Your Business Needs <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                    <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                      <p>Implement automation for repetitive tasks, utilize data analytics for informed decision-making, and leverage digital platforms for customer engagement. Continuously adapt and upgrade your technological infrastructure to stay competitive.</p>
+                    </div>
+                  </li>
+
+                  <li data-aos="fade-up" data-aos-delay="200">
+                    <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Role of ML in The Economy <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                    <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                      <p>Machine Learning (ML) is integral to business, enhancing decision-making, efficiency, and innovation. ML's roles include predictive analytics, leveraging historical data to foresee trends and risks. Customer segmentation benefits from ML analysis, enabling personalized marketing strategies for improved engagement. ML aids fraud detection by identifying unusual patterns in real-time, crucial for security in finance and e-commerce. Supply chain optimization is achieved through ML predicting demand and enhancing logistics. Automation of repetitive tasks elevates operational efficiency, especially in data entry and customer support. Sentiment analysis gauges public perception through ML, while recommendation systems enhance customer experience by suggesting products based on user behavior.</p>
+                    </div>
+                  </li>
+
+                  <li data-aos="fade-up" data-aos-delay="300">
+                    <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> How does data analytics contribute to business decision-making? elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                    <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                      <p>Data analytics empowers informed decision-making in business by extracting valuable insights from large datasets. It identifies trends, patterns, and correlations, enabling businesses to understand customer behavior, optimize operations, and foresee market trends. Through data-driven insights, organizations can make strategic decisions, improve efficiency, and gain a competitive edge. This evidence-based approach ensures that businesses allocate resources effectively, mitigate risks, and stay adaptable in dynamic markets, fostering overall growth and success.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Why Us Section -->
+
+      <!-- ======= Services Section ======= -->
+      <section id="services" class="services">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Services</h2>
+            <p>Revolutionize your digital landscape with our cutting-edge Digital Tech Services. From web development to cybersecurity, we deliver tailored solutions that propel your business into the future. We understand that in today's rapidly advancing digital landscape, staying competitive means leveraging cutting-edge technology to drive your business forward. That's where we come in!</p>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon-box">
+                <i class="bi bi-card-checklist"></i>
+                <h4><a href="#">Web Development</a></h4>
+                <p>Elevate your online presence with our expert web development services. We craft visually stunning, user-friendly websites tailored to your needs, ensuring seamless functionality and a compelling digital experience for your audience.</p>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon-box">
+                <i class="bi bi-bar-chart"></i>
+                <h4><a href="#">Database Management</a></h4>
+                <p>Streamline your data with our comprehensive database management service. From setup to optimization, we ensure secure, efficient, and organized data storage, retrieval, and maintenance for your business needs.</p>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon-box">
+                <i class="bi bi-binoculars"></i>
+                <h4><a href="#">Data Analytics</a></h4>
+                <p>Unlock powerful insights with our data analytics service. Harness the potential of your data to make informed decisions, drive business growth, and stay ahead of the competition. Transform data into results.</p>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon-box">
+                <i class="bi bi-brightness-high"></i>
+                <h4><a href="#">Tech Consultancy:</a></h4>
+                <p>We provide expert guidance and solutions for your technical challenges. Our team offers tailored strategies, innovative approaches, and comprehensive support to optimize your digital endeavors.</p>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="500">
+              <div class="icon-box">
+                <i class="bi bi-calendar4-week"></i>
+                <h4><a href="#">Software Development</a></h4>
+                <p>We specialize in custom software development, crafting tailored solutions to meet your unique business needs. Our team delivers innovative, scalable, and efficient software products to drive your success.</p>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="600">
+              <div class="icon-box">
+                <i class="bi bi-briefcase"></i>
+                <h4>
+                  <a href="#">
+                    Cybersecurity:
+                    <br />
+                    Cyber Threat Hunting (CTH)
+                  </a>
+                </h4>
+                <p>"Explore our Cyber Threat Hunting (CTH) service, dedicated to proactive cybersecurity. With advanced techniques, we detect and neutralize threats, ensuring robust protection for your digital assets and infrastructure."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Services Section -->
+
+      <!-- ======= Cta Section ======= -->
+      <section id="cta" class="cta">
+        <div class="container">
+          <div class="row" data-aos="zoom-in">
+            <div class="col-lg-9 text-center text-lg-start">
+              <h3>Check My Blogs</h3>
+              <p>Visit my blogs for compelling articles, expert insights, and cutting-edge industry trends. Stay informed and inspired by thought-provoking content that fuels your curiosity and drives innovation.</p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+              <a class="cta-btn align-middle" href="{{ url_for('blog') }}">Check Out My Blogs</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Cta Section -->
+
+      <!-- ======= Portfoio Section ======= -->
+      <section id="portfolio" class="portfoio">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>PORTFOLIO</h2>
+            <p>
+              Discover a diverse range of advanced technologies seamlessly incorporated into our service portfolio. From AI, machine learning to state-of-the-art software, enhancing efficiency, effectiveness, and user experience.
+              <br />
+              They showcase our dedication to top-tier solutions in the evolving digital landscape.
+            </p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+              <ul id="portfolio-flters">
+                <li data-filter="*" class="filter-active">All</li>
+                <li data-filter=".filter-app">App</li>
+                <li data-filter=".filter-card">Card</li>
+                <li data-filter=".filter-web">Web</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row portfolio-container">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <img src="{{ url_for('static', filename='assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid" alt />
+              <div class="portfolio-info">
+                <h4>App 1</h4>
+                <p>App</p>
+                <a href="{{ url_for('static', filename='assets/img/portfolio/portfolio-1.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                <a href="{{ url_for('portfolio_details') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+              <img src="{{ url_for('static', filename='assets/img/portfolio/portfolio-2.jpg') }}" class="img-fluid" alt />
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+                <a href="{{ url_for('static', filename='assets/img/portfolio/portfolio-2.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="{{ url_for('portfolio_details') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <img src="{{ url_for('static', filename='assets/img/portfolio/portfolio-3.jpg') }}" class="img-fluid" alt />
+              <div class="portfolio-info">
+                <h4>App 2</h4>
+                <p>App</p>
+                <a href="{{ url_for('static', filename='assets/img/portfolio/portfolio-3.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+                <a href="{{ url_for('portfolio_details') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+              <img src="{{ url_for('static', filename='assets/img/portfolio/portfolio-4.jpg') }}" class="img-fluid" alt />
+              <div class="portfolio-info">
+                <h4>Card 2</h4>
+                <p>Card</p>
+                <a href="{{ url_for('static', filename='assets/img/portfolio/portfolio-4.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+                <a href="{{ url_for('portfolio_details') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+              <img src="{{ url_for('static', filename='assets/img/portfolio/portfolio-5.jpg') }}" class="img-fluid" alt />
+              <div class="portfolio-info">
+                <h4>Web 2</h4>
+                <p>Web</p>
+                <a href="{{ url_for('static', filename='assets/img/portfolio/portfolio-5.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+                <a href="{{ url_for('portfolio_details') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app') }}">
+              <img src="{{ url_for('static', filename='assets/img/portfolio/portfolio-6.jpg') }}" class="img-fluid" alt />
+              <div class="portfolio-info">
+                <h4>App 3</h4>
+                <p>App</p>
+                <a href="{{ url_for('static', filename='assets/img/portfolio/portfolio-6.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+                <a href="{{ url_for('portfolio_details') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+              <img src="{{ url_for('static', filename='assets/img/portfolio/portfolio-7.jpg') }}" class="img-fluid" alt />
+              <div class="portfolio-info">
+                <h4>Card 1</h4>
+                <p>Card</p>
+                <a href="{{ url_for('static', filename='assets/img/portfolio/portfolio-7.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+                <a href="{{ url_for('portfolio_details') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+              <img src="{{ url_for('static', filename='assets/img/portfolio/portfolio-8.jpg') }}" class="img-fluid" alt />
+              <div class="portfolio-info">
+                <h4>Card 3</h4>
+                <p>Card</p>
+                <a href="{{ url_for('static', filename='assets/img/portfolio/portfolio-8.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+                <a href="{{ url_for('portfolio_details') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+              <img src="{{ url_for('static', filename='assets/img/portfolio/portfolio-9.jpg') }}" class="img-fluid" alt />
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+                <a href="{{ url_for('static', filename='assets/img/portfolio/portfolio-9.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="{{ url_for('portfolio_details') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Portfoio Section -->
+
+      <!-- ======= Team Section ======= -->
+      <section id="team" class="team section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>CUSTOMERS' FEEDBACK</h2>
+            <p>Explore the extensive collection of customer feedback on our platform to gain an in-depth understanding of the high-quality service we deliver. In our testimonials section, you will discover a variety of detailed experiences shared by our valued clients, each recounting their individual interactions with our company. These accounts are more than just expressions of contentment; they are affirmations of the significant and positive influence our services have had on their lives, whether personal or professional. Clients enthusiastically share a multitude of reasons for their satisfaction, including our responsive customer support, our adherence to promised timelines, the superior performance of our products, and the customized solutions that went beyond their expectations. By examining these endorsements, you will be able to envision the dedication to excellence that is central to our business philosophy and the dependable outcomes that secure our clients' trust and loyalty.</p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="member d-flex align-items-start">
+                <div class="pic">
+                  <img src="{{ url_for('static', filename='assets/img/team/team-1.jpg') }}" class="img-fluid" alt />
+                </div>
+                <div class="member-info">
+                  <h4>Walter White</h4>
+                  <span></span>
+                  <p>Outstanding freelancer! Meticulous coding, rapid problem-solving, and exceptional project management. A reliable partner, consistently delivering excellence. Highly satisfied with the results!</p>
+                  <div class="social">
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                    <a href="#"><i class="ri-instagram-fill"></i></a>
+                    <a href="#"><i class="ri-linkedin-box-fill"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+              <div class="member d-flex align-items-start">
+                <div class="pic">
+                  <img src="{{ url_for('static', filename='assets/img/team/team-2.jpg') }}" class="img-fluid" alt />
+                </div>
+                <div class="member-info">
+                  <h4>Sarah Jhonson</h4>
+                  <span></span>
+                  <p>Exceeds excellence! Flawless coding, timely deliveries, and outstanding collaboration. A true professional who consistently provides top-tier software solutions. Unquestionably recommend this freelancer!</p>
+                  <div class="social">
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                    <a href="#"><i class="ri-instagram-fill"></i></a>
+                    <a href="#"><i class="ri-linkedin-box-fill"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mt-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="member d-flex align-items-start">
+                <div class="pic">
+                  <img src="{{ url_for('static', filename='assets/img/team/team-3.jpg') }}" class="img-fluid" alt />
+                </div>
+                <div class="member-info">
+                  <h4>William Anderson</h4>
+                  <span></span>
+                  <p>Exceptional freelancer! Unmatched expertise, timely delivery, and superb communication. Elevates projects with innovative solutions. Highly recommended!</p>
+                  <div class="social">
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                    <a href="#"><i class="ri-instagram-fill"></i></a>
+                    <a href="#"><i class="ri-linkedin-box-fill"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mt-4" data-aos="fade-up" data-aos-delay="400">
+              <div class="member d-flex align-items-start">
+                <div class="pic">
+                  <img src="{{ url_for('static', filename='assets/img/team/team-4.jpg') }}" class="img-fluid" alt />
+                </div>
+                <div class="member-info">
+                  <h4>Amanda Jepson</h4>
+                  <span></span>
+                  <p>Outstanding performance! Exemplary coding, timely deliveries, and stellar communication. A professional who consistently delivers top-quality software. Highly impressed and thoroughly satisfied!</p>
+                  <div class="social">
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                    <a href="#"><i class="ri-instagram-fill"></i></a>
+                    <a href="#"><i class="ri-linkedin-box-fill"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Team Section -->
+      <!-- Pricing Section -->
+      <section id="pricing" class="pricing">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Pricing</h2>
+            <p>
+              Explore our flexible pricing model designed to accommodate your needs. Our rates are negotiable, ensuring fairness and tailored solutions for your budget. Get started on your needs today!
+              <br />
+              Explore flexible pricing options tailored to meet your unique needs.
+            </p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="box">
+                <h3>Web Development</h3>
+                <h4><sup>$</sup>500<span>/ month</span></h4>
+                <ul>
+                  <li>Front-end web development</li>
+                  <li>Back-end web development</li>
+                  <li>Server-Side Programming</li>
+                  <li class="na">‎</li>
+                  <li class="na">‎</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#contact" class="btn-buy">Request Service</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+              <div class="box featured">
+                <h3>Database Management</h3>
+                <h4><sup>$</sup>700<span>/ month</span></h4>
+                <ul>
+                  <li>Requirements Analysis and Planning</li>
+                  <li>Logical Design</li>
+                  <li>Physical Design</li>
+                  <li>Deployment and Maintenance</li>
+                  <li class="na">‎</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#contact" class="btn-buy">Request Service</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+              <div class="box">
+                <h3>Software Development</h3>
+                <h4><sup>$</sup>1000<span>/ month</span></h4>
+                <ul>
+                  <li>Requirement Analysis</li>
+                  <li>Implementation (Coding)</li>
+                  <li>Deployment</li>
+                  <li>Maintenance and Support</li>
+                  <li>Feedback and Iteration</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#contact" class="btn-buy">Request Service</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+              <div class="box">
+                <span class="advanced">Advanced</span>
+                <h3>Data Analytics</h3>
+                <h4><sup>$</sup>2000<span>/ month</span></h4>
+                <ul>
+                  <li>Data Collection</li>
+                  <li>Data Cleaning and Preprocessing</li>
+                  <li>Data Visualization</li>
+                  <li>Data Modeling</li>
+                  <li>Interpretation and Insights</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#contact" class="btn-buy">Request Service</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Pricing Section -->
+
+      <!-- Frequently Asked Questions Section -->
+      <section id="faq" class="faq section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+          </div>
+
+          <div class="faq-list">
+            <ul>
+              <li data-aos="fade-up" data-aos="fade-up" data-aos-delay="100">
+                <i class="bx bx-help-circle icon-help"></i>
+                <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">
+                  How do you handle security concerns during deployment?
+                  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                </a>
+                <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                  <p>Security measures should be integrated into the deployment process, including vulnerability scanning, access control, and encryption. Regular security audits and updates should be part of the deployment strategy.</p>
+                </div>
+              </li>
+
+              <li data-aos="fade-up" data-aos-delay="200">
+                <i class="bx bx-help-circle icon-help"></i>
+                <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">
+                  How do you handle rollback in a software deployment?
+                  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                </a>
+                <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                  <p>Rollback in software deployment involves reverting to a previous version of the software if issues arise after a new release. This is typically achieved by having a backup or snapshot of the previous version and an automated or well-documented rollback process.</p>
+                </div>
+              </li>
+
+              <li data-aos="fade-up" data-aos-delay="300">
+                <i class="bx bx-help-circle icon-help"></i>
+                <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">
+                  What is a Perceptron?
+                  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                </a>
+                <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                  <p>A perceptron is a simple type of artificial neuron in the field of artificial intelligence and machine learning. In the human brain, neurons are fundamental units that process and transmit information. Similarly, a perceptron takes multiple binary inputs and produces a single binary output.</p>
+                </div>
+              </li>
+
+              <li data-aos="fade-up" data-aos-delay="400">
+                <i class="bx bx-help-circle icon-help"></i>
+                <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">
+                  How to Harness the Power of Technologies for Your Business Needs
+                  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                </a>
+                <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                  <p>Embrace automation, AI, and cloud solutions for enhanced business efficiency and competitiveness. Utilize data modeling, open platforms, and custom solutions for informed decision-making and flexibility. Prioritize team training to ensure technology adoption. Stay informed on emerging small business technology trends.</p>
+                </div>
+              </li>
+
+              <li data-aos="fade-up" data-aos-delay="500">
+                <i class="bx bx-help-circle icon-help"></i>
+                <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">
+                  How does data analytics contribute to business decision-making?
+                  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i>
+                </a>
+                <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                  <p>Data analytics provides insights that can guide strategic decisions, improve operational efficiency, and identify areas for growth or improvement.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- End Frequently Asked Questions Section -->
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Contact Us</h2>
+          </div>
+
+          <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
+            <div class="col-lg-5">
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>NAIROBI KENYA</p>
+                </div>
+
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>barrack2ouma@gmail.com</p>
+                </div>
+
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p>+254 7699 464 15</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required />
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required />
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required />
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center">
+                  <button type="submit">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Contact Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="footer-newsletter">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <h4>Our Newsletter</h4>
+              <p>Knowledge is power! Subscribe to our newsletter for thought-provoking articles, expert insights, and the latest industry trends. Stay informed and inspired – sign up for our newsletter today.</p>
+            </div>
+            <div class="col-lg-6">
+              <form action="{{ url_for('subscribe') }}" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <input type="submit" value="Subscribe" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="{{ url_for('home') }}#about">About us</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="{{ url_for('home') }}#services">Services</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Web Design</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Web Development</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Data Analytics</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Data Management</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Marketing</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-contact">
+              <h4>Contact Us</h4>
+              <p>
+                NAIROBI KENYA <br />
+                +254 7699 464 15<br />
+                KENYA <br /><br />
+                <strong>Phone:</strong> +254 7699 464 15<br />
+                <strong>Email:</strong> barrack2ouma@gmail.com<br />
+              </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-info">
+              <h3>About Barrack</h3>
+              <p>Barrack, a computer scientist, specializes in machine learning and holds a keen interest in technophysics. With his expertise, he contributes to the advancement of ML applications and its integration into various technological domains.</p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Barrack</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/anyar-free-multipurpose-one-page-bootstrap-theme/ -->
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  </body>
+</html>
