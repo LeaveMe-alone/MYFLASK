@@ -1,48 +1,53 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory, abort, current_app
-from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, FileField, SubmitField, SelectField, PasswordField, BooleanField
-from wtforms.validators import DataRequired, Email, Length, EqualTo, ValidationError
+from flask import (
+    Flask, render_template, request, redirect, url_for, flash,
+    send_from_directory, abort, current_app
+)
+from flask_wtf import FlaskForm, CSRFProtect
+from wtforms import (
+    StringField, TextAreaField, FileField, SubmitField,
+    SelectField, PasswordField, BooleanField
+)
+from wtforms.validators import (
+    DataRequired, Email, Length, EqualTo, ValidationError
+)
 from flask_wtf.file import FileAllowed
-from flask_wtf import CSRFProtect
-from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from werkzeug.utils import secure_filename
-import os
-import secrets
-from PIL import Image
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
+from flask_login import (
+    UserMixin, LoginManager, login_user, login_required,
+    logout_user, current_user
+)
 from flask_admin import Admin, AdminIndexView, expose
 from flask_admin.contrib.sqla import ModelView
-from itsdangerous import URLSafeTimedSerializer as Serializer, BadSignature, SignatureExpired
-import re
-import logging
+from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
+from datetime import datetime
+from PIL import Image
+import os, secrets, re, logging, socket
 from flask_mail import Mail, Message
-from itsdangerous import URLSafeTimedSerializer, SignatureExpired, BadSignature
-import socket
+import uuid  # Make sure to import uuid
 
 # Initialize Flask app
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'SxQpmhxEK2xN3RdUbbr3lK58ZQUVjBRO'  # Hard-coded secret key
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///yourdatabase.db'  # Hard-coded database URI
-app.config['UPLOAD_FOLDER'] = 'static/uploads'
+app.config['SECRET_KEY'] = 'SxQpmhxEK2xN3RdUbbr3lK58ZQUVjBRO'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///yourdatabase.db'
+app.config['UPLOAD_FOLDER'] = os.path.join('static', 'uploads')
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 # Flask-Mail configuration
 app.config['MAIL_SERVER'] = 'smtp.example.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_USERNAME'] = 'barrackdrive@gmail.com'
 app.config['MAIL_PASSWORD'] = 'veryStrong'
 app.config['MAIL_DEFAULT_SENDER'] = ('BARRACK', 'barrackdrive@gmail.com')
 
+# Initialize extensions
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 csrf = CSRFProtect(app)
 mail = Mail(app)
-
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
@@ -53,14 +58,40 @@ if not os.path.exists(app.config['UPLOAD_FOLDER']):
 serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
 
-# Define models
+# Utility Functions
 def generate_slug(title):
-    title = title.lower()
-    title = re.sub(r'\s+', '-', title)
-    title = re.sub(r'[^\w\-]', '', title)
-    return title
+    title = re.sub(r'\s+', '-', title.lower())
+    return re.sub(r'[^\w\-]', '', title)
 
 
+def truncatewords(value, num_words):
+    words = value.split()
+    return ' '.join(words[:num_words]) + '...' if len(words) > num_words else value
+
+
+app.jinja_env.filters['truncatewords'] = truncatewords
+
+
+def save_picture(form_picture):
+    # Generate a unique filename
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = secure_filename(f"{uuid.uuid4().hex}{f_ext}")
+    picture_path = os.path.join(app.root_path, 'static/uploads', picture_fn)
+
+    # Open the image file
+    i = Image.open(form_picture)
+
+    # Convert RGBA images to RGB
+    if i.mode in ("RGBA", "LA") or (i.mode == "P" and "transparency" in i.info):
+        i = i.convert("RGB")
+
+    # Save the image
+    i.save(picture_path, format="JPEG", quality=95)
+
+    return picture_fn
+
+
+# Define Models
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
@@ -82,18 +113,6 @@ class User(db.Model, UserMixin):
             return None
         return User.query.filter_by(email=email).first()
 
-    @staticmethod
-    def verify_reset_token(token):
-        secret_key = current_app.config['SECRET_KEY']
-        if not isinstance(secret_key, str):
-            raise TypeError(f"SECRET_KEY should be a string, got {type(secret_key).__name__}")
-        s = Serializer(secret_key)
-        try:
-            user_id = s.loads(token)['user_id']
-        except (BadSignature, SignatureExpired):
-            return None
-        return User.query.get(user_id)
-
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -112,15 +131,16 @@ class Post(db.Model):
     paragraph_3 = db.Column(db.Text, nullable=True)
     conclusion = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    image = db.Column(db.String(255), nullable=True)
-    image_2 = db.Column(db.String(255), nullable=True)
+    image = db.Column(db.String(20), nullable=True)
+    image_2 = db.Column(db.String(20), nullable=True)
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=True)
     category = db.relationship('Category', backref='posts')
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = generate_slug(self.title)
-        super().save(*args, **kwargs)
+        db.session.add(self)
+        db.session.commit()
 
     def __repr__(self):
         return f'<Post {self.title}>'
@@ -134,7 +154,7 @@ class Category(db.Model):
         return f'<Category {self.name}>'
 
 
-# Define forms
+# Define Forms
 class SubscribeForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
 
@@ -214,39 +234,38 @@ class UpdateAccountForm(FlaskForm):
                 raise ValidationError('That email is taken. Please choose a different one.')
 
 
-# Utility function for truncating words
-def truncatewords(value, num_words):
-    words = value.split()
-    if len(words) > num_words:
-        return ' '.join(words[:num_words]) + '...'
-    return value
+# Flask-Admin Configuration
+class PostModelView(ModelView):
+    form_overrides = {
+        'image': FileField,
+        'image_2': FileField
+    }
+    form_excluded_columns = ('slug',)
+
+    def on_model_change(self, form, model, is_created):
+        if form.image.data:
+            model.image = save_picture(form.image.data)
+        if form.image_2.data:
+            model.image_2 = save_picture(form.image_2.data)
+        if not model.slug:
+            model.slug = generate_slug(model.title)
 
 
-app.jinja_env.filters['truncatewords'] = truncatewords
-
-
-# Initialize Flask-Admin
-class MyAdminIndexView(AdminIndexView):
-    @expose('/')
-    @login_required
-    def index(self):
-        return super(MyAdminIndexView, self).index()
-
-
-class AuthModelView(ModelView):
-    def is_accessible(self):
-        return current_user.is_authenticated
-
-
-admin = Admin(app, name='MyAdmin', template_mode='bootstrap3', index_view=MyAdminIndexView())
-admin.add_view(AuthModelView(Post, db.session))
-admin.add_view(AuthModelView(Category, db.session))
+admin = Admin(app, template_mode='bootstrap3')
+admin.add_view(PostModelView(Post, db.session))
+admin.add_view(ModelView(Category, db.session))
+admin.add_view(ModelView(User, db.session))
 
 
 # Route to serve uploaded files
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    if os.path.exists(file_path):
+        return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    else:
+        print(f"File not found: {file_path}")
+        abort(404)
 
 
 # Routes
@@ -276,6 +295,11 @@ def contact():
 def blog():
     posts = Post.query.all()
     recent_posts = sorted(posts, key=lambda x: x.created_at, reverse=True)[:4]
+
+    # Debugging output
+    for post in posts:
+        print(f"Post Title: {post.title}, Image: {post.image}")
+
     return render_template('blog.html', posts=posts, recent_posts=recent_posts)
 
 
@@ -290,7 +314,7 @@ def subscribe():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    if (form.validate_on_submit()):
+    if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and check_password_hash(user.password, form.password.data):
             login_user(user)
@@ -323,11 +347,10 @@ def register():
         return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        hashed_password = generate_password_hash(form.password.data)  # No need for .decode('utf-8')
+        hashed_password = generate_password_hash(form.password.data)
         user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
-        # Redirect to login page or send confirmation email
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
@@ -348,7 +371,7 @@ def account():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
-    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    image_file = url_for('static', filename='uploads/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file=image_file, form=form)
 
 
@@ -400,10 +423,10 @@ def send_reset_email(user):
                   sender='noreply@example.com',
                   recipients=[user.email])
     msg.body = f'''To reset your password, visit the following link:
-{url_for('reset_token', token=token, _external=True)}
+    {url_for('reset_token', token=token, _external=True)}
 
-If you did not request this, please ignore this email.
-'''
+    If you did not request this, please ignore this email.
+    '''
     try:
         mail.send(msg)
     except socket.gaierror as e:
@@ -414,17 +437,5 @@ If you did not request this, please ignore this email.
         flash('An unexpected error occurred while sending the email. Please try again later.', 'danger')
 
 
-def save_picture(form_picture):
-    random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename)
-    picture_fn = random_hex + f_ext
-    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
-    output_size = (125, 125)
-    i = Image.open(form_picture)
-    i.thumbnail(output_size)
-    i.save(picture_path)
-    return picture_fn
-
-
-if __name__ == '__main__':
-    app.run(host='10.132.54.59', port=8000)
+if __name__ == "__main__":
+    app.run(debug=True)
